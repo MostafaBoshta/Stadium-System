@@ -1,0 +1,45 @@
+package staduim.reservation;
+
+// import java.util.ArrayList;
+// import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
+
+public class reserveController {
+    public static void main(String args[]) {
+       
+    }
+
+    public static void showSeats(Matches match) {
+        Scanner userSeatChoicePlaceholder = new Scanner(System.in);
+        List<Integer> availableSeats = match.Stadium.get(match.stadiumName); 
+        int num = 1;
+        System.out.println("--------------------------------------------");
+        for(Integer seat:availableSeats) {
+            System.out.println("("+ num +") category " + num + " : "+seat);
+            num++; 
+        }
+        System.out.println("--------------------------------------------");
+        int userSeatChoice = userSeatChoicePlaceholder.nextInt();
+        int seatIndex = userSeatChoice - 1;
+        switch(userSeatChoice) {
+            case 1:
+                match.setSeat("A");
+                availableSeats.set(seatIndex, availableSeats.get(seatIndex) - 1); 
+                break;
+            case 2:
+                match.setSeat("B");
+                availableSeats.set(seatIndex, availableSeats.get(seatIndex) - 1); 
+                break;
+            case 3: 
+                match.setSeat("C");
+                availableSeats.set(seatIndex, availableSeats.get(seatIndex) - 1); 
+                break;
+            default:
+                System.out.println("Please Enter a valid number.");
+        } 
+        
+    }
+
+}
+

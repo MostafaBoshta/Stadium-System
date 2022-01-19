@@ -1,0 +1,53 @@
+package staduim.reservation;
+
+/**
+ *
+ * @author mosta
+ */
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+
+
+public class Matches {
+    String Id; 
+    String Name; 
+    String Date;
+    String stadiumName;
+    HashMap <String, List<Integer>> Stadium;
+    String Seat;
+
+    public Matches(String stadiumName){
+        this.Id = "0";
+        this.Name = "PP1 vs PP2"; 
+        this.Date = "1st of may";
+        this.stadiumName = stadiumName;
+        this.Stadium = initStadium();
+    }
+
+    private HashMap<String, List<Integer>> initStadium(){
+        this.Stadium = new HashMap<String, List<Integer>>();
+        //A seats 
+        List<Integer> A = new ArrayList<Integer>();
+        A.add(20);
+        A.add(50);
+        A.add(100);
+        
+        
+        this.Stadium.put(this.stadiumName, A);
+        return this.Stadium;
+    }
+
+    
+    
+
+    public HashMap<String, List<Integer>> getStadium() {
+        return this.Stadium;
+    }
+
+    public void setSeat(String seat) {
+        this.Seat = seat;
+    }
+    
+}

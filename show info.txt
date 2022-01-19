@@ -1,0 +1,43 @@
+package staduim.reservation;
+
+import static java.time.Clock.system;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class ShowInfo {
+    User client = new User();
+    String username;
+    String Password;
+    String Id; 
+    String Email;
+    List<Matches> Tickets = new ArrayList<Matches>();
+    
+    
+    
+    public ShowInfo(User client ){
+        this.username = client.Name ;
+        this.Password = client.Password;
+        this.Email = client.Email;
+        this.Tickets = client.Tickets;
+        
+        
+    }
+
+    ShowInfo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public void showinformation(){
+        System.out.println("User Name : " + this.username);
+        System.out.println("Email : " + this.Email);
+        for(Matches ticket:this.Tickets){
+        System.out.println("Tickets Name: " + ticket.Name);            
+        System.out.println("Tickets Date: " + ticket.Date);            
+        System.out.println("Tickets Stadium Name: " + ticket.stadiumName);            
+        System.out.println("Tickets Seat: " + ticket.Seat);            
+        }
+        
+    
+    }
+}

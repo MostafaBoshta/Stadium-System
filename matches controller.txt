@@ -1,0 +1,67 @@
+package staduim.reservation;
+
+import java.util.ArrayList;
+// import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class matchesController {
+
+    public static void main(String args[]){
+        Scanner userMatchChoicePlaceholder = new Scanner(System.in);
+
+        List<Matches> matches = initMatches();
+       
+        
+//        for (Matches match: matches) {
+//            System.out.println(match.Stadium.get(match.stadiumName));
+//        }
+    User client1 = new User();
+    for(int i = 0 ; i < 2 ; i++){
+        
+        client1.setName("Asshole");
+        client1.setEmail("Ass@email.com");
+        client1.setPassword("Asshole123");
+        Matches chosenMatch = showMatches(matches, userMatchChoicePlaceholder);
+        reserveController.showSeats(chosenMatch);
+        client1.setTicket(chosenMatch);
+    }
+        ShowInfo show = new ShowInfo(client1);
+        CancelReservation cancel = new CancelReservation(client1);
+        cancel.removing();
+        show.showinformation();
+        
+        
+        
+        userMatchChoicePlaceholder.close();
+    }
+
+    public static List<Matches> initMatches() {
+         // a list of all the matches we have
+         List<Matches> matches = new ArrayList<Matches>();
+         //create matches 
+         Matches m1 = new Matches("stadiumAnus");
+         Matches m2 = new Matches("stadiumCock");
+         matches.add(m1);
+         matches.add(m2);
+         return matches;
+    }
+
+    public static Matches showMatches(List<Matches> matches, Scanner userMatchChoicePlaceholder) {
+
+        int num = 1;
+        for (Matches match:matches){
+            System.out.print("(" + num +") "+ match.Name + " --");
+            System.out.print(" " + match.Date + " --");
+            System.out.println(" " + match.stadiumName);
+            System.out.println("-----------------------------------------");
+            num+=1;
+        }
+        String userMatchChoice = userMatchChoicePlaceholder.nextLine();
+
+        return matches.get((Integer.parseInt(userMatchChoice) - 1));  
+    }
+    
+    
+}

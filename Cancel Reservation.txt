@@ -1,0 +1,36 @@
+package staduim.reservation;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class CancelReservation {
+    
+    User user = new User();
+    List<Matches> Tickets = new ArrayList<Matches>();
+    public CancelReservation(User user ){
+        
+        this.Tickets = user.Tickets;
+        
+        
+        
+    }
+    public void showinformation(){
+        
+        for(Matches ticket:this.Tickets){
+        System.out.println("Tickets Name: " + ticket.Name);            
+        System.out.println("Tickets Date: " + ticket.Date);            
+        System.out.println("Tickets Stadium Name: " + ticket.stadiumName);            
+        System.out.println("Tickets Seat: " + ticket.Seat);            
+        }
+    }
+    public void removing(){    
+        System.out.println("Enter The Match You Want To Cancel");   
+        Scanner input = new Scanner(System.in);
+        int number = input.nextInt();
+        this.Tickets.remove(number);
+    }
+    
+    
+    }    

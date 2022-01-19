@@ -1,0 +1,45 @@
+package staduim.reservation;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class User {
+    String Id; 
+    String Name;
+    String Email;
+    String Password;
+    List<Matches> Tickets = new ArrayList<Matches>();
+
+    //setters and getters
+    public String getName(){
+        return Name; 
+    }
+
+    public void setName(String newName) { 
+        this.Name = newName; 
+    }
+
+    public String getEmail(){
+        return Email; 
+    }
+
+    public void setEmail(String newEmail) { 
+        this.Email = newEmail; 
+    }
+
+    public String getPassword(){
+        return Password; 
+    }
+
+    public void setPassword(String newPassword) { 
+        this.Password = newPassword; 
+    }
+
+    public void setTicket(Matches newTicket) {
+        this.Tickets.add(newTicket);  
+    }
+
+
+}
+
